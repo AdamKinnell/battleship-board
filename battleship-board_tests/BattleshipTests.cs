@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using battleship_board;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,7 +9,7 @@ namespace battleship_board_tests {
     public class BattleshipTests {
 
         [TestMethod]
-        public void Should_ThrowException_When_ConstructedWithInvalidDimensions() {
+        public void Should_ThrowException_WhenConstructedWithInvalidDimensions() {
             Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
                 new Battleship(-1, -1));
             Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
@@ -17,12 +17,23 @@ namespace battleship_board_tests {
         }
 
         [TestMethod]
-        public void Should_BeUndamaged_When_Constructed() {
+        public void Should_BeUndamaged_WhenConstructed() {
             var battleship = new Battleship(4, 1);
             for (int i = 0; i < 4; i++) {
                 var coord = new Coord {X = i, Y = 0};
                 Assert.IsFalse(battleship.IsDamagedAt(coord));
             }
+        }
+
+        [TestMethod]
+        public void Should_Sink_OnlyWhenAllCellsDamaged() {
+            var battleship = new Battleship(4, 1);
+            for (int i = 0; i < 4; i++) {
+                Assert.IsFalse(battleship.IsSunk());
+                var coord = new Coord {X = i, Y = 0};
+                battleship.InflictDamageAt(coord);
+            }
+            Assert.IsTrue(battleship.IsSunk());
         }
 
         [TestMethod]
