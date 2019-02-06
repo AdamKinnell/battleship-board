@@ -33,24 +33,11 @@ namespace battleship_board {
         // Functions //////////////////////////////////////
 
         public bool IsDamagedAt(Coord coord) {
-            if (!this.IsWithinBounds(coord))
-                throw new ArgumentOutOfRangeException(nameof(coord),
-                    "Coordinate must refer to a valid cell");
-
             return this.Cells[coord.X, coord.Y] == CellState.Damaged;
         }
 
         public void InflictDamageAt(Coord coord) {
-            if (!this.IsWithinBounds(coord))
-                throw new ArgumentOutOfRangeException(nameof(coord),
-                    "Coordinate must refer to a valid cell");
-
             this.Cells[coord.X, coord.Y] = CellState.Damaged;
-        }
-
-        private bool IsWithinBounds(Coord coord) {
-            return coord.X >= 0 && coord.X < this.Width &&
-                   coord.Y >= 0 && coord.Y < this.Height;
         }
 
         // Types //////////////////////////////////////////
