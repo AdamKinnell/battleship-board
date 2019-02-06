@@ -5,22 +5,24 @@ namespace battleship_board {
 
     /// <summary>
     ///     Represents the state of a single battleship.
-    ///     Each battleship is represented as a rectangle made up of individual cells.
+    /// 
+    ///     A battleship is represented as a grid of cells,
+    ///     each of which have their own damage status.
     /// </summary>
     public class Battleship {
 
         /// <summary>
-        ///     Construct a new battleship with of the specified dimensions.
+        ///     Construct a new battleship with the specified dimensions.
         /// </summary>
         /// <param name="width">The width of the battleship, in cells</param>
         /// <param name="height">The height of the battleship, in cells</param>
         public Battleship(int width, int height) {
             if (width < 1)
                 throw new ArgumentOutOfRangeException(nameof(width),
-                    "Must have non-negative dimensions");
+                    "Must have positive width");
             if (height < 1)
                 throw new ArgumentOutOfRangeException(nameof(height),
-                    "Must have non-negative dimensions");
+                    "Must have positive height");
 
             this.Width = width;
             this.Height = height;
@@ -41,6 +43,7 @@ namespace battleship_board {
 
         /// <summary>
         ///     The state of damage to the battleship.
+        ///     Accessed like: Cells[x,y]
         /// </summary>
         private CellState[,] Cells { get; }
 
