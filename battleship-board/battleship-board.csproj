@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BattleshipBoard.cs" />
     <Compile Include="Battleship.cs" />
+    <Compile Include="BattleshipLocation.cs" />
     <Compile Include="Coord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

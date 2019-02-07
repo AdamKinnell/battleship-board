@@ -14,8 +14,8 @@ namespace battleship_board {
         /// <summary>
         ///     Construct a new battleship with the specified dimensions.
         /// </summary>
-        /// <param name="width">The width of the battleship, in cells</param>
-        /// <param name="height">The height of the battleship, in cells</param>
+        /// <param name="width"> The width of the battleship, in cells </param>
+        /// <param name="height"> The height of the battleship, in cells </param>
         public Battleship(int width, int height) {
             if (width < 1)
                 throw new ArgumentOutOfRangeException(nameof(width),
@@ -24,9 +24,9 @@ namespace battleship_board {
                 throw new ArgumentOutOfRangeException(nameof(height),
                     "Must have positive height");
 
-            this.Width = width;
-            this.Height = height;
-            this.Cells = new CellState[width, height];
+            Width = width;
+            Height = height;
+            Cells = new CellState[width, height];
         }
 
         // Properties /////////////////////////////////////
@@ -52,26 +52,26 @@ namespace battleship_board {
         /// <summary>
         ///     Check if the specified cell of this battleship is damaged.
         /// </summary>
-        /// <param name="coord">The 0-based coordinate referring to a valid cell</param>
-        /// <returns>True if damaged, else false</returns>
+        /// <param name="coord"> The 0-based coordinate referring to a valid cell </param>
+        /// <returns> True if damaged, else false </returns>
         public bool IsDamagedAt(Coord coord) {
-            return this.Cells[coord.X, coord.Y] == CellState.Damaged;
+            return Cells[coord.X, coord.Y] == CellState.Damaged;
         }
 
         /// <summary>
         ///     Inflict damage on the specified cell of this battleship.
         /// </summary>
-        /// <param name="coord">The 0-based coordinate referring to a valid cell</param>
+        /// <param name="coord"> The 0-based coordinate referring to a valid cell </param>
         public void InflictDamageAt(Coord coord) {
-            this.Cells[coord.X, coord.Y] = CellState.Damaged;
+            Cells[coord.X, coord.Y] = CellState.Damaged;
         }
 
         /// <summary>
         ///     Check if all cells on this battleship have been damaged.
         /// </summary>
-        /// <returns>True if sunk, else false</returns>
+        /// <returns> True if sunk, else false </returns>
         public bool IsSunk() {
-            return this.Cells.Cast<CellState>()
+            return Cells.Cast<CellState>()
                 .All(x => x == CellState.Damaged);
         }
 
