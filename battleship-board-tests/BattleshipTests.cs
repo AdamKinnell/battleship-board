@@ -18,7 +18,9 @@ namespace battleship_board_tests {
         [TestMethod]
         public void Should_BeUndamaged_WhenConstructed() {
             var battleship = new Battleship(4, 1);
-            for (var i = 0; i < 4; i++) Assert.IsFalse(battleship.IsDamagedAt(new Coord { X = i, Y = 0 }));
+            for (var i = 0; i < 4; i++) {
+                Assert.IsFalse(battleship.IsDamagedAt(new Coord { X = i, Y = 0 }));
+            }
         }
 
         [TestMethod]
