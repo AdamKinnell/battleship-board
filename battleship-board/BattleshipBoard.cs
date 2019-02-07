@@ -65,11 +65,13 @@ namespace battleship_board {
         ///     Add a new battleship to the board,
         ///     such that it's top-left cell is located at the specified coordinate.
         /// </summary>
-        /// <param name="battleship"> The battleship to add to the board </param>
+        /// <param name="battleship"> The battleship to add to the board. </param>
         /// <param name="topLeft"> Where the battleship is to be placed. </param>
         /// <returns> </returns>
         public bool AddBattleship(Battleship battleship, Coord topLeft) {
-            if (Battleships.Find(b => b.Battleship == battleship) != null)
+
+            // Since battleships hold state, duplicate references can't be allowed
+            if (Battleships.Any(b => b.Battleship == battleship))
                 throw new ArgumentException(
                     "This battleship is already on the board",
                     nameof(battleship));

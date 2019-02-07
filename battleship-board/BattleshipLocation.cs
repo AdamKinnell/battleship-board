@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace battleship_board {
 
@@ -24,7 +24,7 @@ namespace battleship_board {
 
         /// <summary>
         ///     Iterate over each coordinate of the placement's footprint
-        ///     in the parent coordinate system.
+        ///     in the parent coordinate system. Order is not guaranteed.
         /// </summary>
         /// <returns> An enumerable list of coordinates. </returns>
         public IEnumerable<Coord> IterateFootprint() {
