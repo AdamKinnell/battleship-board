@@ -28,10 +28,11 @@ In particular, we must implement the following functionality:
 * Take an 'attack' at a given position, and report back whether the attack resulted in a hit or a miss.
 * Return whether the player has lost the game yet (i.e. all battleships have been sunk).
 
-## Run
+## Layout
 This repo contains a Visual Studio 2017 solution with two projects:
 * **battleship-board**: Contains all functionality. Built as a library; No executable is produced.
 * **battleship-board-tests**: Contains unit tests to validate the functionality implemented in battleship-board.
 
-Open the solution file in the repo root and use Visual Studio's inbuilt test runner to execute all tests.  
-From the menu bar: `Test > Run > All Tests`
+## Run
+
+Open the solution file at `battleship-board\battleship-board.sln` and use Visual Studio's inbuilt test runner to execute all tests (From the menu bar: `Test > Run > All Tests`).
