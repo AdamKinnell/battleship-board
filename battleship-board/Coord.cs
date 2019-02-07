@@ -6,13 +6,13 @@
     public struct Coord {
 
         /// <summary>
-        ///     The 0-based x coordinate along the row.
+        ///     The 0-based x coordinate along a row.
         ///     Corresponds to the dimension of width.
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        ///     The 0-based x coordinate along the column.
+        ///     The 0-based x coordinate along a column.
         ///     Corresponds to the dimension of height.
         /// </summary>
         public int Y { get; set; }

@@ -99,7 +99,7 @@ namespace battleship_board {
         /// <returns> True if the attack hit a battleship, false if it missed. </returns>
         public bool ReceiveAttackAt(Coord coord) {
 
-            // Find which battleship is hit, if any
+            // Find which battleship was hit, if any
             var location = GetBattleshipAt(coord);
             if (location == null) return false;
 
