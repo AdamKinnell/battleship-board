@@ -111,9 +111,8 @@ namespace battleship_board_tests {
         public void ReceivingAttack_WhenBoardEmpty_ResultsInMiss() {
             var board = new BattleshipBoard(3, 3);
             for (var x = 0; x < board.Width; x++)
-            for (var y = 0; y < board.Height; y++) {
+            for (var y = 0; y < board.Height; y++)
                 Assert.IsFalse(board.ReceiveAttackAt(new Coord() { X = x, Y = y }));
-            }
         }
 
         [TestMethod]
@@ -210,12 +209,34 @@ namespace battleship_board_tests {
                 new Battleship(4, 1),
                 new Coord() { X = 0, Y = 0 }));
 
-            // Attack all cells of the lone battleship
+            // Attack all cells of the lone battleship and sink it
             for (var i = 0; i < 4; i++) {
                 Assert.IsTrue(board.HasBattleshipsRemaining());
-                board.ReceiveAttackAt(new Coord() { X=i, Y=0 });
+                board.ReceiveAttackAt(new Coord() { X = i, Y = 0 });
             }
             Assert.IsFalse(board.HasBattleshipsRemaining());
+        }
+
+        [TestMethod]
+        public void HasBattleshipsRemaining_ReturnsTrue_WhenOneOfTwoBattleshipsSunk() {
+            var board = new BattleshipBoard(10, 10);
+
+            // Add two battleships
+            Assert.IsTrue(board.AddBattleship( // Battleship A
+                new Battleship(4, 1),
+                new Coord() { X = 0, Y = 0 }));
+            Assert.IsTrue(board.AddBattleship( // Battleship B
+                new Battleship(1, 4),
+                new Coord() { X = 1, Y = 1 }));
+
+            // Attack all cells of battleship A and sink it
+            for (var i = 0; i < 4; i++) {
+                Assert.IsTrue(board.HasBattleshipsRemaining());
+                board.ReceiveAttackAt(new Coord() { X = i, Y = 0 });
+            }
+
+            // Battleship B still survives
+            Assert.IsTrue(board.HasBattleshipsRemaining());
         }
     }
 
