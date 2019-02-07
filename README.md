@@ -1,7 +1,7 @@
 
 # battleship-board
 
-This was developed as a solution to a technical assignment.
+This was developed as a solution to a technical assignment I was tasked with completing.
 
 ## Background
 
@@ -21,9 +21,17 @@ The classic game of 'Battleship' has the following rules:
 
 ## Task
 
-We are not required to implement the full game, just a single component: The state tracker for each player. 
+We are not required to implement the full game, only a state tracker for each player.  
 In particular, we must implement the following functionality:
 * Create a board.
 * Add a battleship to the board.
-* Take an “attack” at a given position, and report back whether the attack resulted in a hit or a miss.
-* Return whether the player has lost the game yet (i.e. all battleships are sunk).
+* Take an 'attack' at a given position, and report back whether the attack resulted in a hit or a miss.
+* Return whether the player has lost the game yet (i.e. all battleships have been sunk).
+
+## Run
+This repo contains a Visual Studio 2017 solution with two projects:
+* **battleship-board**: Contains all functionality. Built as a library; No executable is produced.
+* **battleship-board-tests**: Contains unit tests to validate the functionality implemented in battleship-board.
+
+Open the solution file in the repo root and use Visual Studio's inbuilt test runner to execute all tests.  
+From the menu bar: `Test > Run > All Tests`
